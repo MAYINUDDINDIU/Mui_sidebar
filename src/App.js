@@ -25,6 +25,7 @@ import NotFound from './contents/NotFound';
 import Checkout from './contents/Checkout';
 import ClientEntry from './contents/ClientEntry';
 import SignIn from './forms/Signin';
+import Test from './contents/Test';
 
 
 const drawerWidth = 200;
@@ -120,6 +121,10 @@ export default function App() {
       content = <SignIn />;
 
       break;
+    case 'test':
+      content = <Test />;
+
+      break;
     case 'cliententry':
       content = <ClientEntry />;
       break;
@@ -175,11 +180,20 @@ export default function App() {
             <ListItemText primary="Home" />
           </ListItem>
 
+          <ListItem button selected={selectedMenu === 'test'} onClick={() => selectMenu('test')}>
+            <ListItemIcon className={classes.itemIcon}></ListItemIcon>
+            <ListItemText primary="Test" />
+          </ListItem>
+
           <ListItem button onClick={() => collapseMenu1(!collapsedMenu1)}>
             <ListItemIcon className={classes.itemIcon}><CollectionIcon /></ListItemIcon>
             <ListItemText primary="Album" />
             {collapsedMenu1 ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+
+
+
+
           <Collapse component="li" in={collapsedMenu1} timeout="auto" unmountOnExit>
             <List disablePadding>
               <ListItem
@@ -192,7 +206,7 @@ export default function App() {
                 button className={classes.nested} onClick={() => selectMenu('checkout')}>
                 <ListItemText primary="Checkout" />
               </ListItem>
-              
+
 
             </List>
           </Collapse>

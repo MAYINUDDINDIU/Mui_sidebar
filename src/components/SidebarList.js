@@ -31,35 +31,40 @@ function getItems() {
       "items": [{
         "id": 2,
         "name": "Forms",
-            "subitems": [{
-              "id": 3,
-              "name": "Sign-In",
-              "url": 'login'
-            },
-            {
-              "id": 4,
-              "name": "Album",
-              "url": 'album'
-            },
-            {
-              "id": 5,
-              "name": "Checkout",
-              "url": 'checkout'
-            }]
+        "subitems": [{
+          "id": 3,
+          "name": "Sign-In",
+          "url": 'login'
+        },
+        {
+          "id": 4,
+          "name": "Album",
+          "url": 'album'
+        },
+        {
+          "id": 5,
+          "name": "test",
+          "url": 'test'
+        },
+        {
+          "id": 6,
+          "name": "Checkout",
+          "url": 'checkout'
+        }]
       },
       {
         "id": 6,
         "name": "Page Layouts",
-            "subitems": [{
-              "id": 7,
-              "name": "Mini Drawer",
-              "url": 'minidrawer'
-            },
-            {
-              "id": 8,
-              "name": "Nav Tabs",
-              "url": 'navtabs'
-            }]
+        "subitems": [{
+          "id": 7,
+          "name": "Mini Drawer",
+          "url": 'minidrawer'
+        },
+        {
+          "id": 8,
+          "name": "Nav Tabs",
+          "url": 'navtabs'
+        }]
       }
       ]
     }
@@ -76,8 +81,8 @@ class SidebarList extends React.Component {
       2: true,
       6: true
     };
-  }  
-  
+  }
+
   handleClick = (e) => {
     this.setState({ [e]: !this.state[e] });
   };
@@ -105,9 +110,9 @@ class SidebarList extends React.Component {
                           <List disablePadding>
                             {item.subitems.map((sitem) => {
                               return (
-                                <ListItem 
-                                selected={sitem.url===this.props.location.pathname ? true : false}
-                                button key={sitem.id} className={classes.nested} onClick={() => this.handleClickLink(sitem.url)}>
+                                <ListItem
+                                  selected={sitem.url === this.props.location.pathname ? true : false}
+                                  button key={sitem.id} className={classes.nested} onClick={() => this.handleClickLink(sitem.url)}>
                                   <ListItemText key={sitem.id} primary={sitem.name} />
                                 </ListItem>
                               )
@@ -115,10 +120,10 @@ class SidebarList extends React.Component {
                           </List>
                         </Collapse> </div>
                     ) : (
-                        <ListItem 
-                          button onClick={() => this.handleClickLink(item.url)} key={item.id}>   
-                          <ListItemText primary={item.name}  />  
-                        </ListItem>)}
+                      <ListItem
+                        button onClick={() => this.handleClickLink(item.url)} key={item.id}>
+                        <ListItemText primary={item.name} />
+                      </ListItem>)}
                   </div>
 
                 )
